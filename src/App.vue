@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import sidebar from './components/Sidebar'
+import sidebar from '@/components/Sidebar'
 export default {
   name: 'App',
   components: {sidebar}
