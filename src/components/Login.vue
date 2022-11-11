@@ -7,7 +7,7 @@
         <div class="form">
           <h3 @click="showRegister">创建账户</h3>
           <transition name="slide">
-            <div v-show="isShowRegister" class="register">
+            <div :class="{show: isShowRegister}" class="register">
               <input type="text" v-model="register.username" placeholder="用户名">
               <input type="password" v-model="register.password" placeholder="密码">
               <p :class="{error: register.isError}">{{register.notice}}</p>
@@ -16,7 +16,7 @@
           </transition>
           <h3 @click="showLogin">登录</h3>
           <transition name="slide">
-            <div v-show="isShowLogin" class="login">
+            <div :class="{show: isShowLogin}" class="login">
               <input type="text" v-model="login.username" placeholder="输入用户名">
               <input type="password" v-model="login.password" placeholder="密码">
               <p :class="{error: login.isError}">{{login.notice}}</p>
@@ -131,9 +131,11 @@ export default {
   .form {
     width: 270px;
     border-left: 1px solid #ccc;
+    overflow: hidden;
 
     h3 {
       padding: 10px 20px;
+      margin-top: -1px;
       font-weight: normal;  //原本是h3的加粗状态，现在不加粗
       font-size: 16px;
       border-top: 1px solid #eee;
@@ -158,8 +160,16 @@ export default {
     }
 
     .login, .register {
-      padding: 10px 20px;
+      padding: 0px 20px;
       border-top: 1px solid #eee;
+      height: 0;
+      overflow: hidden;  //元素溢出的时候隐藏
+      transition: height .4s;
+
+      //类前面使用&之后，编译之后的 css 变为且的关系;没有使用&，编译之后的 css 是父子的关系;
+      &.show {
+        height: 193px;
+      }
 
       input {
         // 该元素生成一个块级元素盒，在正常的流中，该元素之前和之后产生换行
