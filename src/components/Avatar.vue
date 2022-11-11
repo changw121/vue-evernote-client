@@ -17,7 +17,6 @@ export default {
 
 <style scoped>
 span{
-  border: 1px solid red;
   display: inline-block;  /*用来设置行内元素的宽高*/
   width: 30px;
   height: 30px;
