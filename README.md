@@ -15,4 +15,5 @@ npm run dev
 npm run build
 
 ```
+build之后，cd dist ，通过http-server
 
