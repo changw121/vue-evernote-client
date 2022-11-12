@@ -33,6 +33,7 @@
 <script>
 
 import Auth from '@/apis/auth'
+import Bus from '@/helpers/bus'
 
 // Auth.getInfo()
 //   .then(data => {
@@ -87,6 +88,7 @@ export default {
       }).then(data => {
         this.register.isError = false
         this.register.notice = ''
+        Bus.$emit('userInfo',{username: this.register.username})
         //注册成功之后跳转到笔记本列表页面
         this.$router.push({path: 'notebooks'})
         console.log(data)
@@ -107,8 +109,7 @@ export default {
         return
       }
 
-
-      console.log(`start login..., username: ${this.login.username} , password: ${this.login.password}`)
+      // console.log(`start login..., username: ${this.login.username} , password: ${this.login.password}`)
       Auth.login({
         username: this.login.username,
         password: this.login.password
@@ -116,6 +117,7 @@ export default {
         //用户登录成功隐藏错误提示信息
         this.login.isError = false
         this.login.notice = ''
+        Bus.$emit('userInfo',{username: this.login.username})
         // console.log('start redirect...')
         this.$router.push({path: 'notebooks'})
       }).catch(data => {

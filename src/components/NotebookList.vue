@@ -9,11 +9,22 @@
 </template>
 
 <script>
+import Auth from '@/apis/auth'
+// import Router from '@/router/index'
 export default {
   data(){
     return {
       msg: '这是笔记本列表页面'
     }
+  },
+  created() {
+    // console.log(this.$router === Router)  //true 说明直接使用this.$router和先引入Router再使用是一个效果
+    Auth.getInfo()
+      .then(res => {
+        if(!res.isLogin) {
+          this.$router.push({path: '/login'})
+        }
+      })
   }
 }
 </script>
