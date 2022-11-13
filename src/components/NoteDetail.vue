@@ -1,6 +1,10 @@
 <template>
   <div id="note-detail">
-    <h1>{{msg}} : {{$route.params.noteId}}</h1>
+<!--    如果你的路由是/note/:noteId则再params里面找到后边的参数-->
+<!--    <h1>{{msg}} : {{$route.params.noteId}}</h1>-->
+<!--    如果你的路由是/note?notebookId则在query里面找到后边的参数-->
+    <h1>notebookId: {{$route.query.notebookId}}</h1>
+    <h1>noteId: {{$route.query.noteId}}</h1>
   </div>
 </template>
 
