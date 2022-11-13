@@ -1,0 +1,82 @@
+#notebook-list {
+  flex: 1;
+
+  .btn {
+    font-size: 12px;
+    color: #666;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .btn .iconfont {
+    font-size: 12px;
+  }
+  //input {
+  //  width: 300px;
+  //  height: 30px;
+  //  line-height: 30px;
+  //  border: 1px solid #ccc;
+  //  border-radius: 3px;
+  //  padding: 3px 5px;
+  //  outline: none;
+  //}
+  header {
+    padding: 12px;  //应用于所有
+    border-bottom: 1px solid #ccc;
+  }
+
+  main {
+    padding: 30px 40px;
+    height: calc(100vh - 46px);  //calc中的运算符左右两边必须要有空格
+    overflow: scroll;  //内容过大时加滚动条
+
+    h3 {
+      font-size: 12px;
+      color: #000;
+    }
+
+    .book-list {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #666;
+      background-color: #fff;
+      border-radius: 4px;
+      font-weight: bold;
+
+      span {
+        font-size: 12px;
+        font-weight: bold;
+        color: #b3c0c8;
+      }
+    }
+
+    .action {
+      float: right;
+      margin-left: 4px;
+    }
+
+    .iconfont {
+      color: #1678ea;
+      margin-right: 4px;
+    }
+
+    .notebook{
+      display: block;  //定义元素为块级元素
+      cursor: pointer;
+    }
+    //在光标（鼠标指针）悬停在元素上时提供关联的样式
+    a.notebook:hover {
+      background-color: #f7fafd;
+    }
+
+    a.notebook div {
+      border-bottom: 1px solid #ebebeb;
+      padding: 12px 14px;
+    }
+
+  }
+  .layout {
+    max-width: 966px;
+    margin: 0 auto;  //左右居中
+  }
+
+}
